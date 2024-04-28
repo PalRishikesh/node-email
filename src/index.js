@@ -6,8 +6,15 @@ require("dotenv").config();
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+
 app.use(helment())
+
+var corsOptions = {
+    origin: ["http://127.0.0.1:5500","https://gmapandroid-153521.web.app","http://localhost:3000"],
+    optionsSuccessStatus: 200 // For legacy browser support
+    }
+    
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 5000;
 app.get("/",(req,res)=>{
