@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const helment = require("helmet");
 const emailRouter = require("./routers/emailRouter");
+const functions = require("firebase-functions")
+
 require("dotenv").config();
 
 const app = express();
@@ -25,7 +27,9 @@ app.get("/",(req,res)=>{
 app.use("/api/v1/",emailRouter)
 
 
-app.listen(PORT,()=>{   
-    console.log(`Server is running on port ${PORT}`);
-})
+// app.listen(PORT,()=>{   
+//     console.log(`Server is running on port ${PORT}`);
+// })
+
+exports.api = functions.https.onRequest(app);
 
