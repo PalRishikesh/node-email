@@ -7,7 +7,7 @@ require("dotenv").config();
 // const emailPassword = process.env.EMAIL_AUTH_PASSWORD;
 
 const transporter = nodemailer.createTransport({
-  service: process.env.SMTP_OPTION_SERVICE ?? "",
+  // service: process.env.SMTP_OPTION_SERVICE ?? "",
   host: process.env.SMTP_OPTION_HOST ?? "",
   port: process.env.SMTP_OPTION_PORT ?? "",
   secure: process.env.SMTP_OPTION_SECURE ?? "",
@@ -16,6 +16,8 @@ const transporter = nodemailer.createTransport({
     pass: process.env.EMAIL_AUTH_PASSWORD ?? "",
   },
 });
+
+
 
 // Sending email from this function
 const sendEmail = async (transporter, mailOptions) => {
