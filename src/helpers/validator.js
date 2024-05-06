@@ -19,6 +19,13 @@ const careerFormValidationRules = () => {
   ];
 };
 
+const saveSubscriptionValidationRules = () => {
+  return [
+    body("name").notEmpty(),
+    body("email").isEmail()
+  ];
+};
+
 const isContactFormValidation = (req, res, next) => {
   const error = validationResult(req);
   if (error.isEmpty()) {
@@ -38,4 +45,5 @@ module.exports = {
   contactFormValidationRules,
   careerFormValidationRules,
   isContactFormValidation,
+  saveSubscriptionValidationRules
 };
