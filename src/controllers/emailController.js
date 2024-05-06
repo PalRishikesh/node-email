@@ -1,37 +1,24 @@
 
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
 require("dotenv").config();
-var serviceAccount = require("./../config/admin.json");
-
-// console.log("serviceAccount: ",serviceAccount);
-// const firebaseConfig = {
-//   apiKey: "AIzaSyCW8JYy_heuvCWoQ8O9GTK5HzWw8BdyoQY",
-//   authDomain: "gmapandroid-153521.firebaseapp.com",
-//   databaseURL: "https://gmapandroid-153521-default-rtdb.firebaseio.com",
-//   projectId: "gmapandroid-153521",
-//   storageBucket: "gmapandroid-153521.appspot.com",
-//   messagingSenderId: "204133375941",
-//   appId: "1:204133375941:web:a062cfecd30784f83035ac"
-// };
 
 let firebaseConfig = {
-  type: `${process.env.FIREBASE_TYPE}`,
-  project_id: process.env.FIREBASE_PROJECT_ID,
-  private_key_id: process.env.FIREBASE_PRIVATE_KEY_ID,
-  private_key: process.env.FIREBASE_PRIVATE_KEY,
-  client_email: process.env.FIREBASE_CLIENT_EMAIL,
-  client_id: process.env.FIREBASE_CLIENT_ID,
-  auth_uri: process.env.FIREBASE_AUTH_URI,
-  token_uri: process.env.FIREBASE_TOKEN_URI,
-  auth_provider_x509_cert_url: process.env.FIREBASE_AUTH_PROVIDER_CERT_URL,
-  client_x509_cert_url: process.env.FIREBASE_CLIENT_CERT_URL,
-  universe_domain: process.env.FIREBASE_UNIVERSE_DOMAIN,
+  type: process.env.CUSTOM_FIREBASE_TYPE,
+  project_id: process.env.CUSTOM_FIREBASE_PROJECT_ID,
+  private_key_id: process.env.CUSTOM_FIREBASE_PRIVATE_KEY_ID,
+  private_key: process.env.CUSTOM_FIREBASE_PRIVATE_KEY,
+  client_email: process.env.CUSTOM_FIREBASE_CLIENT_EMAIL,
+  client_id: process.env.CUSTOM_FIREBASE_CLIENT_ID,
+  auth_uri: process.env.CUSTOM_FIREBASE_AUTH_URI,
+  token_uri: process.env.CUSTOM_FIREBASE_TOKEN_URI,
+  auth_provider_x509_cert_url: process.env.CUSTOM_FIREBASE_AUTH_PROVIDER_CERT_URL,
+  client_x509_cert_url: process.env.CUSTOM_FIREBASE_CLIENT_CERT_URL,
+  universe_domain: process.env.CUSTOM_FIREBASE_UNIVERSE_DOMAIN,
 }
-console.log("a: ",firebaseConfig);
 
 admin.initializeApp({
   credential: admin.credential.cert(firebaseConfig),
-  databaseURL: process.env.FIREBASE_DATABASE_URL
+  databaseURL: process.env.CUSTOM_FIREBASE_DATABASE_URL
 });
 
 const MailHelper = require("../helpers/mailHelper");
