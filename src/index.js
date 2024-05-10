@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(helment())
 
 var corsOptions = {
-    origin: ["http://127.0.0.1:5500","https://gmapandroid-153521.web.app","http://localhost:3000"],
+    origin: ["http://127.0.0.1:5500","https://gmapandroid-153521.web.app","http://localhost:3000","https://viacatalyst.com"],
     optionsSuccessStatus: 200 // For legacy browser support
     }
     
@@ -27,9 +27,9 @@ app.get("/",(req,res)=>{
 app.use("/api/v1/",emailRouter)
 
 
-// app.listen(PORT,()=>{   
-//     console.log(`Server is running on port ${PORT}`);
-// })
+app.listen(PORT,()=>{   
+    console.log(`Server is running on port ${PORT}`);
+})
 
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
 
