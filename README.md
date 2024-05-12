@@ -48,5 +48,25 @@
     npm run deploy
     ```
 - After sucessfull deploy it will return the url 
--
-![alt text]("gcf1.png)
+
+## Get the cloud function credential to put .env file
+- Click on setting on poject overview
+
+    ![alt text](https://github.com/palrishikesh/node-email/blob/main/gcf1.png?raw=true)
+
+- Click on Add app and select "<>" option web project
+
+    ![alt text](https://github.com/palrishikesh/node-email/blob/main/gcf2.png?raw=true)
+
+- Give the project name and click on register
+
+    ![alt text](https://github.com/palrishikesh/node-email/blob/main/gcf3.png?raw=true)
+
+- After that click on Service accoutns of Project settings tab
+
+    ![alt text](https://github.com/palrishikesh/node-email/blob/main/gcf4.png?raw=true)
+
+- Select Node.js and click on Generate new private key, file will be downloaded, put that conent in .env file 
+
+    ![alt text](https://github.com/palrishikesh/node-email/blob/main/gcf5.png?raw=true)
+
